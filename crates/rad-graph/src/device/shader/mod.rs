@@ -14,7 +14,7 @@ use notify_debouncer_full::{
 	notify::{EventKind, RecommendedWatcher, RecursiveMode},
 	DebounceEventResult,
 	Debouncer,
-	FileIdMap,
+	RecommendedCache,
 };
 use rspirv::{
 	binary::Assemble,
@@ -707,7 +707,7 @@ pub enum HotreloadStatus {
 }
 
 pub struct ShaderRuntime {
-	_watcher: Debouncer<RecommendedWatcher, FileIdMap>,
+	_watcher: Debouncer<RecommendedWatcher, RecommendedCache>,
 	status: Arc<AtomicBool>,
 	shared: Arc<Mutex<RuntimeShared>>,
 }
